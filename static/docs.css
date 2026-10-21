@@ -1,0 +1,7 @@
+.site-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem; padding: 1rem 0; margin-bottom: 1.5rem; border-bottom: 1px solid currentColor; }
+.site-nav .brand { font-weight: 600; margin-right: auto; }
+.skip-link { position: absolute; top: -100px; }
+.skip-link:focus { position: static; }
+[data-skin="tui"] .layout { max-width: calc(88ch + 4ch); }
+[data-skin="tui"] .site-nav a::before { content: none; }
+@media (max-width: 600px) { .site-nav { padding-top: 2rem; } }

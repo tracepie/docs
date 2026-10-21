@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block sidebar %}{% endblock sidebar %}
+{% block content %}
+<a class="skip-link" href="#documentation">Skip to content</a>
+<nav class="site-nav" aria-label="Main navigation">
+  <a class="brand" href="{{ get_url(path='') }}">Tracepie</a>
+  <a href="{{ get_url(path='docs/') }}">Docs</a>
+  <a href="https://github.com/tracepie/docs">GitHub</a>
+</nav>
+<div id="documentation" tabindex="-1">
+{% block documentation %}{% endblock documentation %}
+</div>
+{% endblock content %}

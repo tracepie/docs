@@ -1,0 +1,8 @@
+{% extends "site.html" %}
+{% block title %}Page not found · {{ config.title }}{% endblock %}
+{% block documentation %}
+<article>
+<h1>Page not found</h1>
+<p>The page may have moved. <a href="{{ get_url(path='docs/') }}">Browse the documentation</a> or <a href="{{ get_url(path='') }}">return home</a>.</p>
+</article>
+{% endblock documentation %}

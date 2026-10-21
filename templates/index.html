@@ -1,0 +1,7 @@
+{% extends "site.html" %}
+{% block documentation %}
+<article>
+<header><h1>{{ section.title }}</h1></header>
+{{ section.content | safe }}
+</article>
+{% endblock documentation %}

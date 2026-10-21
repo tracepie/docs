@@ -1,0 +1,10 @@
+{% extends "site.html" %}
+{% block title %}{{ page.title }} · {{ config.title }}{% endblock %}
+{% block description %}{{ page.description | default(value=config.description) }}{% endblock %}
+{% block documentation %}
+<article>
+<header><h1>{{ page.title }}</h1>{% if page.description %}<p class="post-meta">{{ page.description }}</p>{% endif %}</header>
+{{ page.content | safe }}
+</article>
+<p><a href="{{ get_url(path='docs/') }}">← All documentation</a></p>
+{% endblock documentation %}

@@ -1,0 +1,36 @@
+name: Check documentation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          submodules: true
+          persist-credentials: false
+      - name: Install pinned Zola
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="$(cat .zola-version)"
+          test "$version" = "0.23.6"
+          archive="$RUNNER_TEMP/zola.tar.gz"
+          curl --fail --location --retry 3 \
+            "https://github.com/getzola/zola/releases/download/v${version}/zola-v${version}-x86_64-unknown-linux-gnu.tar.gz" \
+            --output "$archive"
+          echo "8f5132b3522412d04e395e0b25f6d68613ad272a873e54a2b3ebf664873024a4  $archive" | sha256sum --check
+          mkdir -p "$RUNNER_TEMP/zola-bin"
+          tar -xzf "$archive" -C "$RUNNER_TEMP/zola-bin" zola
+          echo "$RUNNER_TEMP/zola-bin" >> "$GITHUB_PATH"
+      - run: zola check --skip-external-links
+      - run: zola build
+      # Build checks only. No Pages upload, deployment job or write permissions.

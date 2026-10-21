@@ -1,0 +1,24 @@
+base_url = "https://tracepie.com"
+title = "Tracepie"
+description = "A live code map and connected retrieval for coding agents."
+default_language = "en"
+theme = "zola-quiet"
+compile_sass = false
+generate_feeds = false
+build_search_index = false
+
+[markdown]
+smart_punctuation = false
+
+[markdown.highlighting]
+style = "class"
+light_theme = "github-light"
+dark_theme = "github-dark"
+
+[extra]
+author = "Tracepie"
+github = "tracepie/docs"
+canonical_base = "https://tracepie.com"
+# Quiet omits the sidebar when this is empty. site.html also overrides
+# its sidebar block, including the documentation table of contents.
+ascii_signature = ""
