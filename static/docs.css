@@ -2,6 +2,9 @@
 .site-nav .brand { font-weight: 600; margin-right: auto; }
 .skip-link { position: absolute; top: -100px; }
 .skip-link:focus { position: static; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 0.4rem; text-align: left; vertical-align: top; }
+td:first-child code { white-space: nowrap; }
 [data-skin="tui"] .layout { max-width: calc(88ch + 4ch); }
 [data-skin="tui"] .site-nav a::before { content: none; }
 @media (max-width: 600px) { .site-nav { padding-top: 2rem; } }
